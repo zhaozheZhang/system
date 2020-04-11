@@ -13,6 +13,7 @@ class SystemApplicationTests {
     UserMapper userMapper;
     @Test
     void contextLoads() {
+        int a = 1;
         //User u = new User(1,"zzz",new BCryptPasswordEncoder().encode("1234"),1,"1");
         //userMapper.addUser(u);
     }
