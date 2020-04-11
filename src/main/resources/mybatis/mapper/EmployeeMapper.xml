@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system.mapper.EmployeeMapper">
+    <select id="queryEmployeeList" resultType="Employee">
+        select *, departmentName as department from employee e left join department d on e.departmentId = d.id
+    </select>
+    <select id="queryById" resultType="Employee">
+        select *, departmentName as department from employee e left join department d on e.departmentId = d.id where e.id = #{id}
+    </select>
+    <insert id="addUEmployee" >
+        INSERT INTO employee ( name, email, gender, departmentId, birth)
+        VALUES ( #{name}, #{email}, #{gender}, #{department}, #{birth});
+    </insert>
+    <delete id="deleteEmployee">
+        delete from employee where id = #{id}
+    </delete>
+    <update id="updateEmployee">
+        UPDATE employee
+        SET `name`=#{name}, `email`= #{email}, `gender`=#{gender}, `departmentId`=#{department}, `birth`=#{birth}
+        WHERE `id`=#{id}
+    </update>
+
+</mapper>
